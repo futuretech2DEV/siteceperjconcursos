@@ -1,0 +1,63 @@
+<%- include('top.ejs') %>
+<div class="row" style="background-color: black; color: white; height: 30px; border-radius: 5px 5px 0px 0px;">
+  <div class="col-2">Protocolo</div>
+  <div class="col">Nome</div>
+  <div class="col-2">Ações</div>
+</div>
+<% docs.forEach(function(customer){ %>
+  <div class="row" style="border: 1px solid rgba(39,41,43,0.1); background-color: rgba(39,41,43,0.03);">
+    <div class="col-2">
+      <a href="/edit/<%= customer._id %>">
+        <%= customer.pProtocolo %>
+      </a>
+    </div>
+    <div class="col">
+      <%= customer.pNome %>
+    </div>
+    <div class="col-2">
+      <a href="/editar/<%= customer._id %>" class="btn">
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAGBSURBVDhPpZO9rgFBFMf/uySiUBIJD6CxpUYU6FWI7STKTUQi9iHUW0jovYHOS2hUPgqJRKPCyi5jzzG7cX3k3hu/Zs6ZOefMmf/MKMIDX6DK8U+cTieUy2VMp1M5AwQdzOdznM9nKIrCCwTZmqaxfb1eEY1GMZvNYFkW6vU6CoUCwrTY7/exXC4Rj8c5kKC6kUiEC1wuF6TTaRwOB3S7Xe7EdVyOo0DRbDZpeIuXLLzC0hOi1+uJ8XgsPSFYg1AoBNeVFR+gI6VSKex2O/YNw0Aul0Oj0WCfCER8PDth2zYymQy22y377XYbxWIR1WqVfZ+Pt5BIJLBardjudDosGCWbpslzPiziM8fjEdlsFsPhEIvFAvl8HrVajdfW6zWPPm87oHvebDYYjUYolUpBMhEOP+1JSrZaLeGJyKr+hq7r0roTdODZ0vofXICSX1r7gKr+PDVnxWIxDAYDJJNJfnXvoGt2HAf7/V7O3An+wmQyefkLz1BopVLhh+fz5XcGbq1v/LEMEBK+AAAAAElFTkSuQmCC"
+          alt="Editar registro">
+      </a>
+      <a href="/exportPDF/<%= customer._id %>" class="btn">
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAFhSURBVDhPjZM9SAMxFMf/SVoKxdEPHNysi4OLh0sRJ0cXcRRnHcVBHITi6uAgDiouDuIibqK0FCsU8VzEQaiCgyC6KijWS2K+1Npcz/7guPceye9ekguRCij48gJkJgPYVKHeLAXy/AS6tgXiqh5awMsnUhzu69BDqKce5GwSA9USShmkEEbYjP5y+qKGz2BA9+RhBO2QCmvgQc6TtC3QnbDwFtFw/x9JokDkB4HXF5e55VzegY8O/UhaC3gE2t0DZLOu8AtbWgHKxyZuLVBHCGGPshn5/gbC0iZO3oOHe6B05JJ4fP03OxtA9QZyZhI4r0B0doH19gETU26AJbYDvUGysAi5vQ4xOw+MjYOGV5C7m3ZAI+Z3Oi1JfrBnQlkpStGhyjyyeQxmrJqj8TuYmwYpnqnemCsk4wuuH4GRvEv+xwiE4CA0+UAaIYSaOSbW69CBf51bQAhI/QOssKoS4AvefdIZJX0JcQAAAABJRU5ErkJggg=="
+          alt="Exportar PDF" srcset="">
+      </a>
+      <a href="/delete/<%= customer._id %>" class="btn"
+        onclick="return confirm('Tem certeza que deseja excluir?');">
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJhSURBVDhPZZLPaxpREMffru66Gk2M0RgP1igxGguRQANC14Ct9GQvaXoIoYFAoD31VOghpVBScmih7aGFpAmlkB5aevEfEDznIMX20NAo4iKyxu2STVyzvzu60kDyOTxmmO935s3jIaPPzsrK+6UlM77KTiazm8uZMY4QekHTC+l0mqY35+YgvcTbeDzoco0KwquZGUix7eXlm6mUxLKqJFkcjkI+/7RcNqXAh3g8NjV1xvOGonRFsTsxgXdEUTk+lkVRgrzRuEXT7xIJU/0xGk1GIhrPWxVFE0ULx6mGgcG1ns3O3qVpqdPBNc2iKARCv1mWkuXQ2BiMFVm2e3ICTSt+/5NqtWeAZi8TiTvJpK6qmKoSiqJbrXqzqTBMl+N0gtA6nT+h0ONaDZQDA/A6FrsdCuEkiauqVCrBNIwkkcUiNRrlcPhhtWrKLgzAfjY7zbIEw1AjI1YMw3FcYNlKKnW/UBgoEOo963+MZlM+Ohpyu4cIwkmScFIk6ea4QbnPxYQ3Pt8NQfD6/Xar1UVRFKyh67Jh/K3Xfzqd95pNUzaYsOXxXOd5u8eDMIyy2bh6XeE4l90OZUcgMC0I3wIBU9kzPB8djfM86XZrug73bh8eljKZYiRyWqmAX4W39nqDPP+578E2g8FrDDPscDgIYthmU1utX/Pzjw4OoLY/ObnQbst+f+f8vKuqpxzHhsO4j6bPEII2OkLtVusHTZtq4EGtVhwf7zIMbCJrmqhp9sXF3m/dSqd3EfoCe2ezkF5iLxotIpRHaHttDdLB995bXf20vm7GV/may33f2OhFhvEPVmByA9Ir2rkAAAAASUVORK5CYII="
+          alt="Excluir Registro">
+      </a>
+
+    </div>
+  </div>
+  <% }) %>
+  <hr />
+  <p>
+    <%= count %> clientes encontrados!
+  </p>
+
+  <nav aria-label="Paginação">
+    <ul class="pagination">
+      <% for(let i=1; i <=qtdPaginas; i++) { if(i !==pagina){ %>
+        <li class="page-item"><a class="page-link" href="/<%= i %>">
+            <%= i %>
+          </a></li>
+        <% } else { %>
+          <li class="page-item active"><a class="page-link" href="/<%= i %>">
+              <%= i %>
+            </a></li>
+          <% } } %>
+    </ul>
+  </nav>
+
+  <hr />
+  <a href="/new" class="btn btn-primary">Cadastrar novo cliente</a>
+
+
+    
+
+      <%- include('bottom.ejs') %>

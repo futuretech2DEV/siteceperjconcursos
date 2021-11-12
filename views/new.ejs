@@ -1,0 +1,165 @@
+<%- include('top.ejs'); %>
+
+<header>
+    CEPERJ <%= title %>
+</header>
+    <form action="<%= action %>" method="POST">
+
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="col">
+                <input class="form-check-input" type="checkbox" value="" id="dataDAC" name="dataDAC" checked="<%= doc.pDAC %>">
+                <label for="dataDAC">Declaração de Aprovação em Concurso</label>
+            </div>
+            <div class="col">
+                <input class="form-check-input" type="checkbox" value="" id="dataCDP" name="dataCDP" checked="<%= doc.pCDP %>">
+                <label for="dataCDP">Correção de Dados Pessoais</label>
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="col">
+                <input class="form-check-input" type="checkbox" value="" id="dataDPP" name="dataDPP" checked="<%= doc.pDPP %>">
+                <label for="dataDPP">Declaração de Presença em Dia de Prova </label>
+            </div>
+            <div class="col">
+                <input class="form-check-input" type="checkbox" value="" id="dataOUT" name="dataOUT" checked="<%= doc.pOUT %>">
+                <label for="dataOUT">Outros</label>
+            </div>
+        </div>
+        
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="col">
+                <label for="dataNome">Nome:</label>
+                <input type="text" class="form-control" id="dataNome" name="dataNome" placeholder="Entre com seu nome"
+                    value="<%= doc.pNome %>" />
+            </div>
+        </div>
+        
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="col">
+                <label for="dataIdade">Filiação:</label>
+                <input type="text" class="form-control" id="dataFiliacao" name="dataFiliacao"
+                    placeholder="Entre com sua filiação" value="<%= doc.pFiliacao %>" />
+            </div>
+        </div>
+        
+
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="col">
+                <label for="dataECivil">Estado Civil:</label>
+                <select class="form-select" name="dataECivil" id="dataECivil">
+                    <%ddECivil.forEach(function(item) { %>
+                        <option value="<%=item%>"><%= item %></option>
+                        <% });%>
+                </select>
+            </div>
+            <div class="col">
+                <label for="dataDN">Data de Nascimento:</label>
+                <input type="date" class="form-control" id="dataDN" name="dataDN" value="<%= doc.pDataNasc %>" />
+            </div>
+            <div class="col">
+                <label for="dataDI">Documento de Identidade:</label>
+                <input type="text" class="form-control" id="dataDI" name="dataDI" placeholder="Número documento"
+                    value="<%= doc.pDOC %>" />
+            </div>
+            <div class="col">
+                <label for="dataCPF">CPF:</label>
+                <input type="text" class="form-control" id="dataCPF" name="dataCPF" placeholder="Número CPF"
+                    value="<%= doc.pCPF %>" />
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="col-2">
+                <label for="dataCEP">CEP:</label>
+                <input type="text" class="form-control" id="dataCEP" name="dataCEP" placeholder="Digite seu CEP"
+                    value="<%= doc.pCEP %>" />
+            </div>
+            <div class="col">
+                <label for="dataLogradouro">Logradouro:</label>
+                <input type="text" class="form-control" id="dataLogradouro" name="dataLogradouro"
+                    placeholder="Digite a idade" value="<%= doc.pLogradouro %>" />
+            </div>
+            <div class="col-3">
+                <label for="dataNumLog">Número:</label>
+                <input type="text" class="form-control" id="dataNumLog" name="dataNumLog" placeholder="Digite a idade"
+                    value="<%= doc.pNumero %>" />
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="col-3">
+                <label for="dataComplemento">Complemento:</label>
+                <input type="text" class="form-control" id="dataComplemento" name="dataComplemento" placeholder="Algum complemento?"
+                    value="<%= doc.pComplemento %>" />
+            </div>
+            <div class="col">
+                <label for="dataCidade">Cidade:</label>
+                <input type="text" class="form-control" id="dataCidade" name="dataCidade" placeholder="Digite sua Cidade"
+                    value="<%= doc.pCidade %>" />
+            </div>
+            <div class="col-2">
+                <label for="dataUF">UF:</label>
+                <select class="form-select" name="dataUF" id="dataUF">
+                    <%for (var prop in ddUF) {%>
+                        <option value="<%=ddUF[prop].siglaUF%>"><%= ddUF[prop].nomeUF %></option>
+                        <% };%>
+                </select>
+                <!--<input type="text" class="form-control" id="dataUF" name="dataUF" placeholder="Digite a idade"
+                    value="<%= doc.pUF %>" /> -->
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="col-2">
+                <label for="dataTelres">Telefone Residencial:</label>
+                <input type="text" class="form-control" id="dataTelres" name="dataTelres" placeholder="Digite a idade"
+                    value="<%= doc.pTelres %>" />
+            </div>
+            <div class="col-2">
+                <label for="dataTelcom">Telefone Comercial:</label>
+                <input type="text" class="form-control" id="dataTelcom" name="dataTelcom" placeholder="Digite a idade"
+                    value="<%= doc.pTelcom %>" />
+            </div>
+            <div class="col">
+                <label for="dataEmail">e-Mail:</label>
+                <input type="email" class="form-control" id="dataEmail" name="dataEmail" placeholder="Digite a idade"
+                    value="<%= doc.pEmail %>" />
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="col">
+                <label for="dataConcurso">Concurso:</label>
+                <input type="text" class="form-control" id="dataConcurso" name="dataConcurso"
+                    placeholder="Digite a idade" value="<%= doc.pConcurso %>" />
+            </div>
+            <div class="col">
+                <label for="dataAnoReal">Ano Realização:</label>
+                <input type="text" class="form-control" id="dataAnoReal" name="dataAnoReal"
+                    placeholder="Digite a idade" value="<%= doc.pAnoReal %>" />
+
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="col">
+                <label for="dataCargo">Cargo:</label>
+                <input type="text" class="form-control" id="dataCargo" name="dataCargo" placeholder="Digite a idade"
+                    value="<%= doc.pCargo %>" />
+
+            </div>
+            <div class="col">
+
+                <label for="dataInscricao">Número de Inscrição:</label>
+                <input type="text" class="form-control" id="dataInscricao" name="dataInscricao"
+                    placeholder="Digite a idade" value="<%= doc.pNumInscr %>" />
+            </div>
+        </div>
+        
+        <label for="dataFundamentacao">Fundamentação do Requerimento:</label>
+        <textarea class="form-control" name="dataFundamentacao" id="dataFundamentacao" cols="30" rows="10"><%=doc.pFundamentacao %></textarea>
+        <br>
+        <input type="submit" value="Salvar" class="btn btn-primary" /><a href="/" class="btn">Cancelar</a>
+    </form>
+    <%- include('bottom.ejs') %>

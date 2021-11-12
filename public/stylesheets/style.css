@@ -1,0 +1,49 @@
+body {
+  padding: 5px;
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-decoration: none;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+#prDiv {
+  border:1px solid #ced4da; 
+  border-radius: 8px;
+  background: linear-gradient(rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.5)100%), url("/resources/cristo.jpeg");
+/*  background-image: url("/resources/cristo.jpeg");*/
+  background-size:     cover;          
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+#loginIcon {
+  padding-top: 0;
+}
+
+.menuIten {
+  width: 25%;
+  border: 1px solid black;
+}
+
+.tBlack {
+  color: black;
+}
+
+.textDS {
+  color: black;
+  text-shadow: 2px 2px 5px #000000;
+}
+
+.aceIcons {
+  padding-top: 5px;
+  padding: 2px;
+}
