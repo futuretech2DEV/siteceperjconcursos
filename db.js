@@ -1,5 +1,5 @@
 const mongoClient = require("mongodb").MongoClient;
-const uri = "mongodb+srv://santesso:aDM72683776@cluster0.ao9rl.mongodb.net/gproject?retryWrites=true&w=majority"
+const uri = ""
 
 mongoClient.connect(uri, { useUnifiedTopology: true })
     .then(conn => global.conn = conn.db("workshoptdc"))
